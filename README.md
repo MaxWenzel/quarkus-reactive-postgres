@@ -60,7 +60,9 @@ Verify that the native artifact was properly constructed:
 mvnw verify -Pnative 
 ```
 
-Call in browser: http://localhost:8080/hello/polite/Mr.President
+Call in browser: 
+* http://localhost:8080/
+* http://localhost:8080/hello/polite/Mr.President
 
 
 ## Docker
@@ -87,3 +89,8 @@ docker run -i --rm -p 8080:8080 quarkus/quarkus-project
 * svm.jar (included in Graal VM package) is recognized as threat by Windows defender (see also https://github.com/oracle/graal/issues/1752)
 * share the project directory in Docker (see also https://github.com/quarkusio/quarkus/issues/9816)
 * increase docker memory up to 8GB (see also https://github.com/oracle/graal/issues/920)
+* Reactive Postgres and Flyway (see also https://github.com/quarkusio/quarkus/issues/2751)
+
+## Links
+
+* https://medium.com/@hantsy/kickstart-your-first-quarkus-application-cde54f469973

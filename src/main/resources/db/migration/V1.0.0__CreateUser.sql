@@ -1,0 +1,1 @@
+CREATE USER quarkus WITH PASSWORD 'quarkusPassword';

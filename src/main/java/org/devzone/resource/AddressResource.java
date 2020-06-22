@@ -3,6 +3,7 @@ package org.devzone.resource;
 import io.smallrye.mutiny.Multi;
 import io.vertx.mutiny.pgclient.PgPool;
 import org.devzone.Address;
+import org.jboss.resteasy.annotations.SseElementType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,8 +22,16 @@ public class AddressResource {
     private PgPool client;
 
     @GET
+    @Path("/complete")
     public Multi<Address> get() {
         logger.info("Try to find postalcodes");
+        return Address.findAll(client);
+    }
+
+    @GET
+    @Produces(MediaType.SERVER_SENT_EVENTS)
+    @SseElementType(MediaType.APPLICATION_JSON)
+    public Multi<Address> getAllAtOnce(@org.jboss.resteasy.annotations.jaxrs.PathParam int count, @org.jboss.resteasy.annotations.jaxrs.PathParam String name) {
         return Address.findAll(client);
     }
 

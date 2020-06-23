@@ -82,6 +82,12 @@ Run the container:
 docker run -i --rm -p 8080:8080 quarkus/quarkus-project
 ```
 
+Call:
+
+```bash
+curl -N http://localhost:8082/postalcodes
+```
+
 ## Pitfalls (Windows)
 
 * install and use x64 Native Tools Command Prompt (as extension for Visual Studio 2019)
